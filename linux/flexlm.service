@@ -1,0 +1,15 @@
+[Unit]
+Description=Mathworks License Manager
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/flexlm/dir/
+ExecStart=/flexlm/dir/lmgrd -z
+SuccessExitStatus=15
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
