@@ -1,0 +1,18 @@
+[Unit]
+Description=Start and Stop Assetto Corsa Server Manager
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=josh
+Group=josh
+RemainAfterExit=yes
+WorkingDirectory=/home/josh/server-manager_v1.7.9/linux
+ExecStart=/home/josh/server-manager_v1.7.9/linux/server-manager
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -- $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
